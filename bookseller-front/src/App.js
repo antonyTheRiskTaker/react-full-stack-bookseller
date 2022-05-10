@@ -9,6 +9,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './screens/Home';
 import Books from './screens/Books';
 import BookPage from './screens/BookPage';
+import SignupPage from './screens/SignupPage';
 
 // import BreadcrumbDemo from './components/BreadcrumbDemo';
 // import CardDemo from './components/CardDemo';
@@ -33,7 +34,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/books' element={<BookPage />} />
-        <Route />
+        <Route path='/signup' element={<SignupPage />} />
         <Route />
         {/* <Route  path='/cart' element = {
           <RequireAuth redirectTo="/login" >
