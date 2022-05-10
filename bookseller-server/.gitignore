@@ -1,0 +1,5 @@
+node_modules/
+.env
+
+# only to be ignored for a while
+auth/
