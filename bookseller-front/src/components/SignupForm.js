@@ -2,7 +2,7 @@ import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
+import Button from 'react-bootstrap/Button';
 
 const SignupForm = () => {
   return (
@@ -44,6 +44,11 @@ const SignupForm = () => {
                 <Form.Control type='password' />
                 <Form.Text></Form.Text>
               </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Button variant='success' type='submit'>Submit</Button>
             </Col>
           </Row>
         </Container>
