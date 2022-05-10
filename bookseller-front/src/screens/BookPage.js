@@ -27,7 +27,7 @@ export default function BookPage() {
     <>
       <main>
         <Container>
-          {/* Add a generic breadcrumb componenet here. Please reference https://www.perlego.com/book/1974529/the-basics-of-essay-writing-pdf for inspiration */}
+          {/* Add a generic breadcrumb component here. Please reference https://www.perlego.com/book/1974529/the-basics-of-essay-writing-pdf for inspiration */}
           <Row>
             <Col>
               <Row>

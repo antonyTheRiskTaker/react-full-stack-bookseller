@@ -35,7 +35,11 @@ function App() {
         <Route path='/books' element={<BookPage />} />
         <Route />
         <Route />
-        <Route />
+        {/* <Route  path='/cart' element = {
+          <RequireAuth redirectTo="/login" >
+          <Cart />
+          </RequireAuth >
+        }/> */}
       </Routes>
       <Footer />
     </div>
