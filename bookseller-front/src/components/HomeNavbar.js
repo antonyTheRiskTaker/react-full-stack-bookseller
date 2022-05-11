@@ -14,7 +14,6 @@ export default function HomeNavbar() {
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='me-auto'>
-              {/* (Line below) add navdropdown for books, inside add genres */}
               <Nav.Link as={Link} to='/books'>Books</Nav.Link>
               <Nav.Link as={Link} to='/signup'>Sign Up</Nav.Link>
               <Nav.Link as={Link} to='/login'>Log in</Nav.Link>

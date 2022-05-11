@@ -1,12 +1,13 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# custom components & files
+# custom components & files no longer needed
 BooksellerRoutes.js
 BreadcrumbDemo.js
 CardDemo.js
 ContainerDemo.js
 FormDemo.js
 Books.js
+NavbarDropdown.js
 
 # dependencies
 /node_modules
