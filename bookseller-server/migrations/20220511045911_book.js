@@ -7,6 +7,18 @@ exports.up = function(knex) {
     table.increments('id').primary();
     table.string('first_name').notNullable();
     table.string('last_name').notNullable();
+  }).then(() => {
+    return knex.schema.createTable('book', table => {
+      table.string('isbn').primary();
+      table.string('title').notNullable();
+      table.string('synopsis');
+      table.integer('author_id').unsigned();
+      table.foreign('author_id').references('author.id');
+      table.decimal('price_per_unit').notNullable();
+      table.string('publication_year').notNullable();
+      table.integer('stock').notNullable();
+      table.string('category').notNullable();
+    });
   });
 };
 
@@ -15,5 +27,7 @@ exports.up = function(knex) {
  * @returns { Promise<void> }
  */
 exports.down = function(knex) {
-  return knex.schema.dropTable('author');
+  return knex.schema.dropTable('book').then(() => {
+    return knex.schema.dropTable('author');
+  });
 };
