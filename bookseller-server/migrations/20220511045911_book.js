@@ -15,7 +15,7 @@ exports.up = function(knex) {
       table.integer('author_id').unsigned();
       table.foreign('author_id').references('author.id');
       table.decimal('price_per_unit').notNullable();
-      table.string('publication_year').notNullable();
+      table.integer('publication_year').notNullable();
       table.integer('stock').notNullable();
       table.string('category').notNullable();
     });
