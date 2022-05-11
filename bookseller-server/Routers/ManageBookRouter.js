@@ -14,7 +14,9 @@ class ManageBookRouter {
     router.delete('/managebook/:isbn', /*this.authClass.authenticate(),*/ this.remove.bind(this)); // remove book items
   }
 
-  list() {}
+  list(req, res) {
+    return this.todoService.list(req.book[0]) // continue from here
+  }
 
   add() {}
 
