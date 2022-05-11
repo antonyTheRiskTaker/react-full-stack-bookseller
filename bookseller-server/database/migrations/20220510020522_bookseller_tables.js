@@ -10,7 +10,6 @@ exports.up = function(knex) {
   return knex.schema.createTable('user', table => {
     table.increments('id').primary();
     table.string('first_name');
-    table.string('middle_name');
     table.string('last_name');
     table.string('username').notNullable();
     table.string('email').notNullable().unique();
@@ -29,7 +28,6 @@ exports.up = function(knex) {
     return knex.schema.createTable('author', table => {
       table.increments('id').primary();
       table.string('first_name').notNullable();
-      table.string('middle_name');
       table.string('last_name').notNullable();
     })
   })
@@ -38,7 +36,12 @@ exports.up = function(knex) {
       table.integer('ibsn').primary();
       table.string('title').notNullable();
       table.string('synopsis');
-      table.string
+      table.integer('author_id').unsigned();
+      table.foreign('author_id').references('author.id');
+      table.decimal('price_per_unit').notNullable();
+      table.integer('publication_year').notNullable();
+      table.integer('stock').notNullable();
+      table.string('category').notNullable();
     })
   })
 };
