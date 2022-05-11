@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const e = require('express');
+const express = require('express');
 
 const knexfile = require('./knexfile').development;
 const knex = require('knex')(knexfile);
