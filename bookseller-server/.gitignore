@@ -3,3 +3,5 @@ node_modules/
 
 # only to be ignored for a while
 auth/
+booksellerTable.js
+bookTable.js
