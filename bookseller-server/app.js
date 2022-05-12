@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const express = require('express');
 
 const knexfile = require('./knexfile').development;
 const knex = require('knex')(knexfile);
@@ -19,7 +18,7 @@ app.use(auth.initialize());
 // e.g. 
 // const TodoRouter = require('./Routers/TodoRouter');
 // const TodoService = require('./Services/TodoService');
-// const AuthRouter = require('./Routers/AuthRouter');
+const AuthRouter = require('./Routers/AuthRouter');
 
 // Set up routers and services for bookseller
 const ManageBookRouter = require('./Routers/ManageBookRouter');
@@ -28,7 +27,7 @@ const ManageBookService = require('./Services/ManageBookService');
 // const todoService = new TodoService(knex);
 
 // app.use('/api', new TodoRouter(todoService, authClass).router());
-// app.use('/auth', new AuthRouter(express).router());
+app.use('/auth', new AuthRouter(express, knex).router());
 
 app.listen(8080, () => {
   console.log('Application listening to port 8080');
