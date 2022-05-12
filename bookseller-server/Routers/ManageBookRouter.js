@@ -14,13 +14,30 @@ class ManageBookRouter {
     router.delete('/managebook/:isbn', /*this.authClass.authenticate(),*/ this.remove.bind(this)); // remove book items
   }
 
+  // req.user[0] refers to user id
   list(req, res) {
-    return this.todoService.list(req.book[0]) // continue from here
+    return this.manageBookService
+      .list(req.user[0])
+      .then(books => res.send(books))
   }
 
-  add() {}
+  add(req, res) {
+    return this.manageBookService
+      .add(req.user[0], /*req.body.title,*/)
+      .then((book) => res.send(book[0]))
+  }
 
-  update() {}
+  update(req, res) {
+    return this.manageBookService
+      .update(req.user[0], /*req.body.title,*/ req.body.isbn)
+      .then((book) => res.send(JSON.stringify(book)))
+  }
 
-  remove() {}
+  remove(req, res) {
+    return this.manageBookService
+      .remove(req.user[0], req.params.isbn)
+      .then(() => res.send(req.params.isbn))
+  }
 }
+
+module.exports = ManageBookRouter;
