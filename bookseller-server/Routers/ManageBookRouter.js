@@ -12,6 +12,8 @@ class ManageBookRouter {
     router.post('/managebook', /*this.authClass.authenticate(),*/ this.add.bind(this)); // add a book
     router.put('/managebook', /*this.authClass.authenticate(),*/ this.update.bind(this)); // edit and update current book info
     router.delete('/managebook/:isbn', /*this.authClass.authenticate(),*/ this.remove.bind(this)); // remove book items
+
+    return router;
   }
 
   // req.user[0] refers to user id

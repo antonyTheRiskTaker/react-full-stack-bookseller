@@ -26,7 +26,7 @@ const ManageBookService = require('./Services/ManageBookService');
 
 // const todoService = new TodoService(knex);
 
-// app.use('/api', new TodoRouter(todoService, authClass).router());
+// app.use('/api', new TodoRouter(todoService, auth, express).router());
 app.use('/auth', new AuthRouter(express, knex).router());
 
 app.listen(8080, () => {
