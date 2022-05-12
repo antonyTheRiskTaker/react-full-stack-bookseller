@@ -13,7 +13,7 @@ module.exports = (knex) => {
     async (payload, done) => {
       let user = await knex
         .select('*')
-        .from('users')
+        .from('users') // from 'users' to 'user'
         .where({ id: payload.id })
 
       if (user.length == 0) {

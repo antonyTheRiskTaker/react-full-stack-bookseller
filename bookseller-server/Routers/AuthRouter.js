@@ -26,9 +26,13 @@ class AuthRouter {
 
     let user = await this.knex
       .select('*')
-      .from('users')
-      .where({ email: email })
-      .then(data => data[0])
+      .from('users') // change from 'users' to 'user' (my database table)
+      .where({ email: email }) // inputed email matches email in the database
+      // .then(data => data[0])
+      .then(data => {
+        console.log(data);
+        return data[0];
+      })
 
     if (await bcrypt.compare(password, user.password)) {
       let payload = {
@@ -52,7 +56,7 @@ class AuthRouter {
       password: hashedpw
     }
 
-    let userId = await this.knex('users')
+    let userId = await this.knex('users') // from 'users' to 'user' (my db table)
       .insert(userInfo)
       .returning('id')
 

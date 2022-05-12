@@ -3,7 +3,7 @@
  * @returns { Promise<void> }
  */
 exports.up = function (knex) {
-  return knex.schema.createTable('user', table => {
+  return knex.schema.createTable('users', table => {
     table.increments('id').primary();
     table.string('first_name');
     table.string('last_name');
@@ -16,7 +16,7 @@ exports.up = function (knex) {
     return knex.schema.createTable('credit_card', table => {
       table.increments('id').primary();
       table.integer('user_id').unsigned();
-      table.foreign('user_id').references('user.id');
+      table.foreign('user_id').references('users.id');
       table.string('cardholder_name').notNullable();
       table.string('expiration_date').notNullable();
     })
@@ -44,7 +44,7 @@ exports.up = function (knex) {
       return knex.schema.createTable('single_order', table => {
         table.increments('id').primary();
         table.integer('user_id').unsigned();
-        table.foreign('user_id').references('user.id');
+        table.foreign('user_id').references('users.id');
         table.decimal('total'); // need review
         table.boolean('fulfilled')
       })
@@ -79,6 +79,6 @@ exports.down = function (knex) {
       return knex.schema.dropTable('credit_card');
     })
     .then(() => {
-      return knex.schema.dropTable('user');
+      return knex.schema.dropTable('users');
     });
 };
