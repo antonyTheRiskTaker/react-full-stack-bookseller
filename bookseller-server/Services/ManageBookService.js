@@ -9,7 +9,14 @@ class ManageBookService {
     return books;
   }
 
-  add() {} // continue from here
+  async add(/*user,*/ bookInfo) {
+    let book = {
+      isbn: bookInfo.isbn,
+      title: bookInfo.title,
+      synopsis: bookInfo.synopsis,
+      author // continue from here
+    }
+  }
 
   update() {}
 
