@@ -11,8 +11,8 @@ exports.seed = async function(knex) {
   await knex('credit_card').del()
   await knex('users').del()
   await knex('users').insert([
-    {id: 1, first_name: 'antony', last_name: 'lo', username: 'antonylo69', email: 'antonylo@gmail.com', password: '1234', address: 'No.1, Durham Road, Kowloon Tong, Kowloon, HK', admin_access: true},
-    {id: 2, first_name: 'loid', last_name: 'forger', username: 'loidforger', email: 'loidforger@gmail.com', password: 'OpEr@TiOnStRyX', address: 'No.1, Pariser Platz, Berlint, Ostania', admin_access: true}
+    {first_name: 'antony', last_name: 'lo', username: 'antonylo69', email: 'antonylo@gmail.com', password: '1234', address: 'No.1, Durham Road, Kowloon Tong, Kowloon, HK', admin_access: true},
+    {first_name: 'loid', last_name: 'forger', username: 'loidforger', email: 'loidforger@gmail.com', password: 'OpEr@TiOnStRyX', address: 'No.1, Pariser Platz, Berlint, Ostania', admin_access: true}
   ])
   await knex('credit_card').insert([
     {id: 1, user_id: 1, cardholder_name: 'Antony Lo', expiration_date: '5/2023'},

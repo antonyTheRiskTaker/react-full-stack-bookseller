@@ -33,6 +33,8 @@ class AuthRouter {
         console.log(data);
         return data[0];
       })
+    
+    console.log(user);
 
     if (await bcrypt.compare(password, user.password)) {
       let payload = {
@@ -41,6 +43,9 @@ class AuthRouter {
 
       let token = jwt.sign(payload, config.jwtSecret)
       res.json({ token })
+    } else {
+      console.log('Password incorrect');
+      res.send('fail');
     }
   }
 
