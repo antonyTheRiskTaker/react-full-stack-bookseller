@@ -45,7 +45,7 @@ exports.up = function (knex) {
         table.increments('id').primary();
         table.integer('user_id').unsigned();
         table.foreign('user_id').references('users.id');
-        table.decimal('total'); // need review
+        table.decimal('total');
         table.boolean('fulfilled')
       })
     })
@@ -57,7 +57,7 @@ exports.up = function (knex) {
         table.integer('order_id').unsigned();
         table.foreign('order_id').references('single_order.id')
         table.integer('quantity');
-        table.decimal('total_price'); // need review
+        table.decimal('total_price');
       })
     })
 };
