@@ -54,6 +54,8 @@ exports.up = function (knex) {
         table.increments('id').primary();
         table.string('isbn');
         table.foreign('isbn').references('book.isbn');
+        table.integer('order_id').unsigned();
+        table.foreign('order_id').references('single_order.id')
         table.integer('quantity');
         table.decimal('total_price'); // need review
       })
