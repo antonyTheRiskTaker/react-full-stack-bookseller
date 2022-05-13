@@ -11,6 +11,7 @@ module.exports = (knex) => {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken()
   },
     async (payload, done) => {
+      console.log(payload);
       let user = await knex
         .select('*')
         .from('users') // from 'users' to 'user'
@@ -19,8 +20,8 @@ module.exports = (knex) => {
       if (user.length == 0) {
         return done(new Error('User not found'))
       } else {
-        console.log(user);
-        return done(null, user);
+        console.log('!', user);
+        return done(null, user[0]);
       }
     }
   )
@@ -32,7 +33,7 @@ module.exports = (knex) => {
       return passport.initialize();
     },
     authenticate: function() {
-      return passport.authenticate('jwt', config.jwtSession.session);
+      return passport.authenticate('jwt', config.jwtSession);
     }
   }
 }
