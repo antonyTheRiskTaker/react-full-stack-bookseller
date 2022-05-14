@@ -34,7 +34,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <HomeNavbar />
+        <HomeNavbar authentication={isAuthenticated}/>
       </header>
       {/* <Container>
         <FormDemo />
