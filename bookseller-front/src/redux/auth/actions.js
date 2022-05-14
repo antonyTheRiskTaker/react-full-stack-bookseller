@@ -20,7 +20,7 @@ export const loginUserThunk = (email, password) => {
   }
 }
 
-export const signupUserThunk = (username, email, password) => {
+export const signupUserThunk = (email, password) => {
   return (dispatch) => {
     axios.post(`${process.env.REACT_APP_API_SERVER}/auth/signup`, {
       email,

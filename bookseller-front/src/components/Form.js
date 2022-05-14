@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Button, Form, FormGroup } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 
-function Form(props) {
+function UserForm(props) {
   let [info, setInfo] = useState({
     email: '',
     password: ''
@@ -57,9 +57,20 @@ function Form(props) {
         onClick={(e) => {
           e.preventDefault();
           info.email.length > 0 && info.password.length > 0 && dispatch(
-            props.signup ? props.thunk(info.email, info.password)
-          )
-        }}>{props.name}</Button>
+            props.signup
+              ? props.thunk(info.email, info.password)
+              : props.thunk(info.email, info.password)
+          );
+          props.signup &&
+          info.email.length > 0 &&
+          info.password.length > 0 &&
+          navigate('/login');
+        }}
+      >
+        {props.name}
+      </Button>
     </Form>
   );
 }
+
+export default UserForm;
