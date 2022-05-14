@@ -1,4 +1,5 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 // import './App.css';
 
 // import Container from 'react-bootstrap/Container';
@@ -16,9 +17,20 @@ import SignupPage from './screens/SignupPage';
 // import FormDemo from './components/FormDemo';
 import HomeNavbar from './components/HomeNavbar';
 import Footer from './components/Footer';
-// import BooksellerRoutes from './components/BooksellerRoutes';
+import BookList from './components/BookList';
+import Login from './components/Login';
+import Signup from './components/Signup';
+import LogoutButton from './components/LogoutButton';
+import { Nav } from 'react-bootstrap';
+
+function RequireAuth({children, redirectTo}) {
+  let isAuthenticated = useSelector((state) => state.authStore.auth);
+  return isAuthenticated ? children : <Navigate to={redirectTo} />;
+}
 
 function App() {
+  let isAuthenticated = useSelector((state) => state.authStore.auth);
+
   return (
     <div className="App">
       <header className="App-header">
