@@ -8,6 +8,7 @@ ContainerDemo.js
 FormDemo.js
 Books.js
 NavbarDropdown.js
+.env
 
 # dependencies
 /node_modules
