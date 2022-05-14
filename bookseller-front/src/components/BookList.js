@@ -26,7 +26,7 @@ export default function BookList() {
 
   const submitBook = (e) => {
     e.preventDefault();
-    const newBook = {book};
+    const newBook = { book };
     book.length > 0 && dispatch(AddBookThunk(newBook));
     setBook('');
   }
@@ -37,8 +37,17 @@ export default function BookList() {
       isbn: editedBook.isbn,
       title: editedBook.title,
       synopsis: editedBook.synopsis,
-      
-    }))
+      author: editedBook.author,
+      price_per_unit: editedBook.price_per_unit,
+      publication_year: editedBook.publication_year,
+      stock: editedBook.stock,
+      category: editedBook.category
+    }));
+    setEditedBook({});
+  }
+
+  const deleteBook = (e, i) => {
+    dispatch(DeleteBookThunk(i));
   }
 
   return (
@@ -52,7 +61,7 @@ export default function BookList() {
             <Form.Control
               value={book}
               onChange={(e) => {
-                setTitle(e.target.value)
+                setBook(e.target.value)
               }}
               type='text'
               name='text'
