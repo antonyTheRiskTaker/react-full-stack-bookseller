@@ -2,28 +2,18 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 // import './App.css';
 
-// import Container from 'react-bootstrap/Container';
-// import Button from 'react-bootstrap/Button';
-// import Col from 'react-bootstrap/Col';
-// import Row from 'react-bootstrap/Row';
-
 import Home from './screens/Home';
 import Books from './screens/Books';
 import BookPage from './screens/BookPage';
-import SignupPage from './screens/SignupPage';
 
-// import BreadcrumbDemo from './components/BreadcrumbDemo';
-// import CardDemo from './components/CardDemo';
-// import FormDemo from './components/FormDemo';
 import HomeNavbar from './components/HomeNavbar';
 import Footer from './components/Footer';
 import BookList from './components/BookList';
 import Login from './components/Login';
 import Signup from './components/Signup';
-import LogoutButton from './components/LogoutButton';
 import { Nav } from 'react-bootstrap';
 
-function RequireAuth({children, redirectTo}) {
+function RequireAuth({ children, redirectTo }) {
   let isAuthenticated = useSelector((state) => state.authStore.auth);
   return isAuthenticated ? children : <Navigate to={redirectTo} />;
 }
@@ -34,15 +24,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <HomeNavbar authentication={isAuthenticated}/>
+        <HomeNavbar authentication={isAuthenticated} />
       </header>
-      {/* <Container>
-        <FormDemo />
-        <CardDemo />
-        <BreadcrumbDemo />
-        <Button>Test</Button>
-      </Container> */}
-      {/* <BooksellerRoutes /> (modularise this part if possible) */}
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/books' element={<BookPage />} />
@@ -51,8 +34,11 @@ function App() {
           <Route path='/history' element={}>
           <Route path='/philosophy' element={}>
         </Route> */}
-        <Route path='/signup' element={<SignupPage />} />
-        <Route />
+        <Route path='/signup' element={<Signup />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/managebook' element={<RequireAuth redirectTo='/login'>
+          <BookList />
+        </RequireAuth>} />
         {/* <Route  path='/cart' element = {
           <RequireAuth redirectTo="/login" >
           <Cart />
