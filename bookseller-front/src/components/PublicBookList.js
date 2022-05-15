@@ -1,21 +1,40 @@
-import { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-// import some react-bootstrap elements
-
-import { GetBooksThunk } from '../redux/managebook/actions';
+import { useSelector } from 'react-redux';
+import { Row, Col } from 'react-bootstrap';
 
 const PublicBookList = () => {
-  // an array of book objects
-  const [books, setBooks] = useState([]);
+  const booksFromRedux = useSelector((state) => state.manageBookStore.books);
 
-  const booksFromRedux = useSelector((state) => state.bookStore.books);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(GetBooksThunk());
-  }, []);
-
-  // continue from here
+  return (
+    <>
+      <ul>
+        {booksFromRedux.map((book) => (
+          <li>
+            <>
+              <Row>
+                <Col>{book.title}</Col>
+              </Row>
+              <Row>
+                <Col>Author: {book.author}</Col>
+                <Col>ISBN: {book.isbn}</Col>
+              </Row>
+              <Row>
+                <Col>Synopsis</Col>
+                <Col><p>{book.synopsis}</p></Col>
+              </Row>
+              <Row>
+                <Col>Price: {book.price}</Col>
+                <Col>Year: {book.publication_year}</Col>
+              </Row>
+              <Row>
+                <Col>Stock: {book.stock}</Col>
+                <Col>Category: {book.category}</Col>
+              </Row>
+            </>
+          </li>
+        ))}
+      </ul>
+    </>
+  )
 }
 
 export default PublicBookList;
