@@ -2,7 +2,7 @@ import { logoutNowThunk } from '../redux/auth/actions';
 
 import { useDispatch } from 'react-redux';
 
-import {Button} from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 export default function LogoutButton() {
   let dispatch = useDispatch();
