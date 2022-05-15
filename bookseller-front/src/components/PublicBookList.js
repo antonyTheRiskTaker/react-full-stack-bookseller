@@ -4,7 +4,7 @@ import { Row, Col } from 'react-bootstrap';
 const PublicBookList = () => {
   const booksFromRedux = useSelector((state) => state.manageBookStore.books);
   const bookListItems = booksFromRedux.map((book) => (
-    <li>
+    <li key={book.isbn}>
       <Row>
         <Col>{book.title}</Col>
       </Row>
