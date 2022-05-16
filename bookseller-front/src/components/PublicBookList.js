@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Row, Col } from 'react-bootstrap';
 import { GetBooksThunk } from '../redux/managebook/actions';
+import AddToCartButton from './AddToCartButton';
 
 const PublicBookList = () => {
   const dispatch = useDispatch();
@@ -30,6 +31,11 @@ const PublicBookList = () => {
       <Row>
         <Col>Stock: {book.stock}</Col>
         <Col>Category: {book.category}</Col>
+      </Row>
+      <Row>
+        <Col>
+          <AddToCartButton />
+        </Col>
       </Row>
     </li>)
   );
