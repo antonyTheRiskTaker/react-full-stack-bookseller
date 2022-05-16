@@ -28,7 +28,7 @@ export default function HomeNavbar(props) {
                   <Nav.Link as={Link} to='/login'>Log in</Nav.Link>
                 </>
               )}
-              <Nav.Link as={Link} to='/checkout'>Cart</Nav.Link>
+              <Nav.Link as={Link} to='/cart'>Cart</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
