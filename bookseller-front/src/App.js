@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import BookList from './components/BookList';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import PublicBookList from './components/PublicBookList';
 import { Nav } from 'react-bootstrap';
 
 function RequireAuth({ children, redirectTo }) {
@@ -28,7 +29,7 @@ function App() {
       </header>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/books' element={<BookPage />} />
+        <Route path='/books' element={<PublicBookList />} />
         {/* <Route path='/books' element={<BookPage />}>
           <Route path='/finance' element={}>
           <Route path='/history' element={}>

@@ -8,7 +8,7 @@ class ManageBookRouter {
   router() {
     let router = this.express.Router();
 
-    router.get('/managebook', this.authClass.authenticate(), this.list.bind(this)); // display all books
+    router.get('/managebook', this.list.bind(this)); // display all books
     router.post('/managebook', this.authClass.authenticate(), this.add.bind(this)); // add a book
     router.put('/managebook', this.authClass.authenticate(), this.update.bind(this)); // edit and update current book info
     router.delete('/managebook/:isbn', this.authClass.authenticate(), this.remove.bind(this)); // remove book items
@@ -18,9 +18,8 @@ class ManageBookRouter {
 
   // req.user[0] refers to user id
   list(req, res) {
-    console.log(req.user[0]);
     return this.manageBookService
-      .list(req.user[0])
+      .list()
       .then(books => res.send(books))
   }
 

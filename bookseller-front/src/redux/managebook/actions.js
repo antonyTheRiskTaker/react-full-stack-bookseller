@@ -77,7 +77,7 @@ export function GetBooksThunk() {
   return dispatch => {
     // (Line below) is it needed?
     let token = localStorage.getItem('BooksellerLoginToken');
-
+    console.log(token);
     axios.get(
       `${process.env.REACT_APP_API_SERVER}/api/managebook`,
       { // Is headers needed?

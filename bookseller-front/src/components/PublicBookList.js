@@ -1,7 +1,14 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Row, Col } from 'react-bootstrap';
+import { GetBooksThunk } from '../redux/managebook/actions';
 
 const PublicBookList = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(GetBooksThunk());
+  }, []);
+
   const booksFromRedux = useSelector((state) => state.manageBookStore.books);
   const bookListItems = booksFromRedux.map((book) => (
     <li key={book.isbn}>
