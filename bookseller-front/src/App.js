@@ -13,6 +13,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import PublicBookList from './components/PublicBookList';
 import Cart from './components/Cart';
+import Checkout from './components/Checkout';
 import { Nav } from 'react-bootstrap';
 
 function RequireAuth({ children, redirectTo }) {
@@ -45,7 +46,13 @@ function App() {
           <RequireAuth redirectTo="/login" >
             <Cart />
           </RequireAuth >
-        } />
+        }>
+          <Route path='/checkout' element={
+            <RequireAuth redirectTo='/login' >
+              <Checkout />
+            </RequireAuth>
+          } />
+        </Route>
       </Routes>
       <Footer />
     </div>

@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Button, Form, Row, Col } from 'react-bootstrap';
+import CheckoutButton from './CheckoutButton';
 
 
 const Cart = () => {
@@ -34,6 +35,7 @@ const Cart = () => {
         </div>
       )) : null}
       <h1>Total items: {cartItemsFromRedux.length}</h1>
+      <CheckoutButton />
     </div>
   );
 }
