@@ -2,11 +2,11 @@ import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 
 import ManageBookReducer from './managebook/reducer';
 import AuthReducer from './auth/reducer';
+import CartReducer from './cart/reducer';
 // Import more reducers from here
 
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
-import CartReducer from './cart/reducer';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
