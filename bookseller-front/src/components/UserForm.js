@@ -16,7 +16,7 @@ function UserForm(props) {
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate('/managebook');
+      navigate('/cart');
     }
   }, [isAuthenticated]);
 
