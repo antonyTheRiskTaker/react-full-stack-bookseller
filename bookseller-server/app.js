@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
 
 const knexfile = require('./knexfile').development;
 const knex = require('knex')(knexfile);
@@ -8,6 +9,11 @@ const auth = require('./auth/auth')(knex);
 
 const app = express();
 
+// app.use(
+//   cors({
+//     origin: 'http://localhost:3000',
+//   })
+// );
 app.use(cors());
 app.use(express.json());
 // (Line below) it allows us to take the values that we'd get from a form input
@@ -24,15 +30,16 @@ const AuthRouter = require('./Routers/AuthRouter');
 const ManageBookRouter = require('./Routers/ManageBookRouter');
 const ManageBookService = require('./Services/ManageBookService');
 const CheckoutRouter = require('./Routers/CheckoutRouter');
+const CheckoutService = require('./Services/CheckoutService');
 
 // const todoService = new TodoService(knex);
 const manageBookService = new ManageBookService(knex);
-
+const checkoutService = new CheckoutService(knex, stripe);
 
 // app.use('/api', new TodoRouter(todoService, auth, express).router());
 app.use('/auth', new AuthRouter(express, knex).router());
 app.use('/api', new ManageBookRouter(manageBookService, auth, express).router());
-// app.use('/checkout', new CheckoutRouter(checkoutService, auth, express).router());
+app.use('/cart', new CheckoutRouter(checkoutService, auth, express).router());
 
 app.listen(8080, () => {
   console.log('Application listening to port 8080');

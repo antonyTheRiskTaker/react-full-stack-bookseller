@@ -8,12 +8,18 @@ class CheckoutRouter {
   router() {
     let router = this.express.Router();
 
-    // Show the checkout page
-    router.get('/checkout')
+    // Process payment
+    router.post('/checkout', this.processPayment.bind(this));
 
-    // Add book item(s) to the basket
+    return router;
+  }
 
-    // Delete book item(s)
+  processPayment(req, res) {
+    try {
+       this.checkoutService.processPayment().then((data)=> res.send(data))
+    } catch (e) {
+      res.status(500).json({ error: e.message });
+    }
   }
 }
 
