@@ -1,6 +1,6 @@
 import Button from 'react-bootstrap/Button';
 
-const AddToCartButton = () => {
+const AddToCartButton = (props) => {
   const goToCart = e => {
     
   }
