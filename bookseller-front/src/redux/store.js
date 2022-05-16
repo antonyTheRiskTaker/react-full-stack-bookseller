@@ -6,12 +6,14 @@ import AuthReducer from './auth/reducer';
 
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
+import CartReducer from './cart/reducer';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
   manageBookStore: ManageBookReducer,
   authStore: AuthReducer,
+  cartStore: CartReducer,
   // combine more reducers here
 });
 

@@ -34,7 +34,7 @@ const PublicBookList = () => {
       </Row>
       <Row>
         <Col>
-          <AddToCartButton />
+          <AddToCartButton book={book} />
         </Col>
       </Row>
     </li>)
