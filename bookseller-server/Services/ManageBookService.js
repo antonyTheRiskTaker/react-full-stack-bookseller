@@ -7,7 +7,9 @@ class ManageBookService {
 
   async list(user) { // Is user needed?
     let books = await this.knex('book')
-      .select('*');
+      .select('*')
+      .join('author', 'author.id', 'book.author_id')
+      .where({author_id: id})
     return books;
   }
 
