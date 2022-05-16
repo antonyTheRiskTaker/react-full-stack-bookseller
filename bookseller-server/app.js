@@ -32,7 +32,7 @@ const manageBookService = new ManageBookService(knex);
 // app.use('/api', new TodoRouter(todoService, auth, express).router());
 app.use('/auth', new AuthRouter(express, knex).router());
 app.use('/api', new ManageBookRouter(manageBookService, auth, express).router());
-app.use('/checkout', new CheckoutRouter(checkoutService, auth, express).router());
+// app.use('/checkout', new CheckoutRouter(checkoutService, auth, express).router());
 
 app.listen(8080, () => {
   console.log('Application listening to port 8080');
