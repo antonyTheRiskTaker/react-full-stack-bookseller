@@ -26,23 +26,6 @@ function RequireAuth({ children, redirectTo }) {
 
 function App() {
   let isAuthenticated = useSelector((state) => state.authStore.auth);
-  // const [successCancelMessage, setSuccessCancelMessage] = useState('');
-
-  // useEffect(() => {
-  //   // Check to see if this is a redirect back from the checkout
-  //   const query = new URLSearchParams(window.location.search);
-
-  //   if (query.get('success')) {
-  //     const successMessage = 'Order placed! You will receive an email confirmation.';
-  //     setSuccessCancelMessage(successMessage);
-  //   }
-
-  //   if (query.get('cancel')) {
-  //     const cancelMessage = "Order canceled -- continue to shop around and checkout when you're ready.";
-  //     setSuccessCancelMessage(cancelMessage);
-
-  //   }
-  // }, []);
 
   return (
     <div className="App">
