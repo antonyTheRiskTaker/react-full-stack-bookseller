@@ -9,7 +9,7 @@ export default function LogoutButton() {
 
   return (
     <div>
-      <Button variant='info' onClick={() => dispatch(logoutNowThunk)}>
+      <Button variant='info' onClick={() => dispatch(logoutNowThunk())}>
         Logout
       </Button>
     </div>

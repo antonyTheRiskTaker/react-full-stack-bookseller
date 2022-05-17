@@ -1,8 +1,6 @@
-const SuccessCancelMessage = ({ message }) => {
+const SuccessCancelMessage = () => {
   return (
-    <section>
-      {message}
-    </section>
+      <p>Success</p>
   );
 }
 

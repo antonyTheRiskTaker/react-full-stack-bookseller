@@ -46,6 +46,8 @@ export function ProcessPaymentThunk(cartItems) {
         }
       }
     ).then((res) => {
+      console.log(res.data)
+      window.location.href=res.data.url
       dispatch({type: DELETE_CART});
     })
   }

@@ -73,12 +73,12 @@ function App() {
         } />
         <Route path='/success' element={
           <RequireAuth redirectTo='/login' >
-            <SuccessCancelMessage message={successCancelMessage} />
+            <SuccessCancelMessage />
           </RequireAuth>
         } />
         <Route path='/cancel' element={
           <RequireAuth redirectTo='/login' >
-            <SuccessCancelMessage message={successCancelMessage} />
+            {/* <SuccessCancelMessage /> // replace this with a failure thing */}
           </RequireAuth>
         } />
       </Routes>
