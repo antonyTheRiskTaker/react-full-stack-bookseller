@@ -1,7 +1,8 @@
 import {
   ADD_CART_ITEM,
   EDIT_CART_ITEM_INFO,
-  DELETE_CART_ITEM
+  DELETE_CART_ITEM,
+  DELETE_CART
 } from './actions';
 
 const initialState = {
@@ -27,6 +28,10 @@ export default function CartReducer(state = initialState, action) {
         cartItems: state.cartItems.filter(cartItem => {
           return cartItem.isbn !== action.payload;
         })
+      }
+    case DELETE_CART:
+      return {
+        cartItems: []
       }
 
     default:

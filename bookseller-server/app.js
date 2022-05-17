@@ -39,7 +39,7 @@ const checkoutService = new CheckoutService(knex, stripe);
 // app.use('/api', new TodoRouter(todoService, auth, express).router());
 app.use('/auth', new AuthRouter(express, knex).router());
 app.use('/api', new ManageBookRouter(manageBookService, auth, express).router());
-app.use('/cart', new CheckoutRouter(checkoutService, auth, express).router());
+app.use('/cart', new CheckoutRouter(checkoutService, auth, express, stripe).router());
 
 app.listen(8080, () => {
   console.log('Application listening to port 8080');

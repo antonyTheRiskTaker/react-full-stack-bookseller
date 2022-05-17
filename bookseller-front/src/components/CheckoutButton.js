@@ -1,11 +1,9 @@
 import Button from 'react-bootstrap/Button';
 
-const CheckoutButton = () => {
-
-  const checkoutHandler = () => {}
+const CheckoutButton = (props) => {
 
   return (
-    <Button variant='primary' onClick={checkoutHandler}>
+    <Button variant='primary' >
       Checkout
     </Button>
   );
