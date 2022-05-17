@@ -1,5 +1,7 @@
 const express = require('express');
 const cors = require('cors');
+require('dotenv').config()
+
 const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
 
 const knexfile = require('./knexfile').development;
@@ -8,17 +10,21 @@ const knex = require('knex')(knexfile);
 const auth = require('./auth/auth')(knex);
 
 const app = express();
-
-// app.use(
-//   cors({
-//     origin: 'http://localhost:3000',
-//   })
-// );
-app.use(cors());
+const corsOptions ={
+    origin:'http://localhost:3000', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
 app.use(express.json());
 // (Line below) it allows us to take the values that we'd get from a form input
 app.use(express.urlencoded({ extended: false }));
 app.use(auth.initialize());
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
 
 // Set up routers and services for webapp (to be deleted later)
 // e.g. 
