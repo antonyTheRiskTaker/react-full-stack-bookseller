@@ -10,13 +10,6 @@ const CancelMessage = () => {
       navigate('/');
     }, 5000);
   }, [navigate]);
-  
-  // const eventHandler = () => {
-  //   setTimeout(() => {
-  //     navigate('/');
-  //   }, 5000);
-  //   navigate('/');
-  // };
 
   return (
     <section>
