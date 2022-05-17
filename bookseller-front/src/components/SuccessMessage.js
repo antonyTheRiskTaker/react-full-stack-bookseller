@@ -4,11 +4,7 @@ import { useEffect } from 'react';
 const SuccessMessage = () => {
   const message = 'Order placed! You will receive an email confirmation.';
   const navigate = useNavigate();
-  // const onLoadHandler = () => {
-  //   setTimeout(() => {
-  //     navigate('/');
-  //   }, 5000);
-  // };
+  
   useEffect(() => {
     setTimeout(() => {
       navigate('/');
