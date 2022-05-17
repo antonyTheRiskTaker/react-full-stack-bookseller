@@ -46,13 +46,12 @@ function App() {
           <RequireAuth redirectTo="/login" >
             <Cart />
           </RequireAuth >
-        }>
-          <Route path='/checkout' element={
-            <RequireAuth redirectTo='/login' >
-              <Checkout />
-            </RequireAuth>
-          } />
-        </Route>
+        } />
+        <Route path='/checkout' element={
+          <RequireAuth redirectTo='/login' >
+            <Checkout />
+          </RequireAuth>
+        } />
       </Routes>
       <Footer />
     </div>

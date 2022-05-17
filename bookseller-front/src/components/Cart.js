@@ -1,11 +1,13 @@
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { ProcessPaymentThunk } from '../redux/cart/actions';
 import { Button, Form, Row, Col } from 'react-bootstrap';
 import CheckoutButton from './CheckoutButton';
 
 
 const Cart = () => {
   const cartItemsFromRedux = useSelector((state) => state.cartStore.cartItems);
+  const dispatch = useDispatch();
 
   return (
     <div>
@@ -35,9 +37,15 @@ const Cart = () => {
         </div>
       )) : null}
       <h1>Total items: {cartItemsFromRedux.length}</h1>
-      <CheckoutButton />
+      <Button variant='primary' onClick={() =>{
+        console.log('clicked')
+         dispatch(ProcessPaymentThunk(cartItemsFromRedux))} 
+      }>
+      Checkout
+    </Button>
     </div>
   );
 }
+
 
 export default Cart;
