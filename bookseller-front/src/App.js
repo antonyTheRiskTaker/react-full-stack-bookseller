@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
 // import './App.css';
 
 import Home from './screens/Home';
@@ -14,6 +15,7 @@ import Signup from './components/Signup';
 import PublicBookList from './components/PublicBookList';
 import Cart from './components/Cart';
 import Checkout from './components/Checkout';
+import SuccessCancelMessage from './components/SuccessCancelMessage';
 import { Nav } from 'react-bootstrap';
 
 function RequireAuth({ children, redirectTo }) {
@@ -23,6 +25,23 @@ function RequireAuth({ children, redirectTo }) {
 
 function App() {
   let isAuthenticated = useSelector((state) => state.authStore.auth);
+  const [successCancelMessage, setSuccessCancelMessage] = useState('');
+
+  useEffect(() => {
+    // Check to see if this is a redirect back from the checkout
+    const query = new URLSearchParams(window.location.search);
+
+    if (query.get('success')) {
+      const successMessage = 'Order placed! You will receive an email confirmation.';
+      setSuccessCancelMessage(successMessage);
+    }
+
+    if (query.get('cancel')) {
+      const cancelMessage = "Order canceled -- continue to shop around and checkout when you're ready.";
+      setSuccessCancelMessage(cancelMessage);
+
+    }
+  }, []);
 
   return (
     <div className="App">
@@ -50,6 +69,16 @@ function App() {
         <Route path='/checkout' element={
           <RequireAuth redirectTo='/login' >
             <Checkout />
+          </RequireAuth>
+        } />
+        <Route path='/success' element={
+          <RequireAuth redirectTo='/login' >
+            <SuccessCancelMessage message={successCancelMessage} />
+          </RequireAuth>
+        } />
+        <Route path='/cancel' element={
+          <RequireAuth redirectTo='/login' >
+            <SuccessCancelMessage message={successCancelMessage} />
           </RequireAuth>
         } />
       </Routes>
