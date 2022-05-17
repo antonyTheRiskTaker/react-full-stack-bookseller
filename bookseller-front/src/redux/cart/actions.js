@@ -4,6 +4,7 @@ import axios from 'axios';
 export const ADD_CART_ITEM = 'ADD_CART_ITEM';
 export const EDIT_CART_ITEM_INFO = 'EDIT_CART_ITEM_INFO';
 export const DELETE_CART_ITEM = 'DELETE_CART_ITEM';
+export const DELETE_CART = 'DELETE_CART';
 
 // export function GetCartItems(cartItems) {
 //   return {
@@ -31,6 +32,23 @@ export function DeleteCartItem(cartItem) {
     type: DELETE_CART_ITEM,
     payload: cartItem
   };
+}
+
+export function ProcessPaymentThunk(cartItems) {
+  return dispatch => {
+    let token = localStorage.getItem('BooksellerLoginToken');
+
+    axios.post(
+      `${process.env.REACT_APP_API_SERVER}/cart/checkout`, { cartItems },
+      {
+        headers: {
+          Authorization: `Bear ${token}`
+        }
+      }
+    ).then((res) => {
+      dispatch({type: DELETE_CART});
+    })
+  }
 }
 
 // export function GetCartItemsThunk() {
