@@ -10,7 +10,7 @@ const PublicBookList = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(GetBooksThunk());
-  }, []);
+  }, [dispatch]);
 
   const booksFromRedux = useSelector((state) => state.manageBookStore.books);
   const bookListItems = booksFromRedux.map((book) => (
@@ -19,8 +19,8 @@ const PublicBookList = () => {
         <Card.Img variant="top" src={codexNo1} />
         <Card.Body>
           <Card.Title>{book.title}</Card.Title>
-          <Card.Text>
-            <table>
+          <table>
+            <tbody>
               <tr>
                 <th>Author:</th>
                 <td>{book.first_name + ' ' + book.last_name}</td>
@@ -45,10 +45,10 @@ const PublicBookList = () => {
                 <th>Category:</th>
                 <td>{book.category}</td>
               </tr>
-            </table>
-            {/* Some quick example text to build on the card title and make up the bulk of
+            </tbody>
+          </table>
+          {/* Some quick example text to build on the card title and make up the bulk of
             the card's content. */}
-          </Card.Text>
           <AddToCartButton book={book} />
         </Card.Body>
       </Card>

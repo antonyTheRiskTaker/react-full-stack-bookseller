@@ -29,9 +29,17 @@ export default function ManageBookReducer(state = initialState, action) {
         })
       };
     case GET_BOOKS:
-      return {
-        books: state.books.concat(action.payload)
-      };
+      if (state.books.length === 0) {
+        console.log('books in state', state.books);
+        console.log('books in payload', action.payload);
+        return {
+          books: state.books.concat(action.payload)
+        };
+      } else {
+        return {
+          books: state.books
+        };
+      }
     default:
       return state;
   }

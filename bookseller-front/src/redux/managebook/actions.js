@@ -86,6 +86,7 @@ export function GetBooksThunk() {
         }
       }
     ).then((res) => {
+      console.log(res.data);
       dispatch(GetBooks(res.data));
     });
   }
