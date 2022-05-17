@@ -43,7 +43,7 @@ class CheckoutRouter {
           },
         ],
         success_url: `http://localhost:3000/success`,
-        cancel_url: `http://localhost:3000?cancel=true`
+        cancel_url: `http://localhost:3000/cancel`
       })
       console.log(session.url)
       // res.redirect(302, session.url); // error when redirecting not able to access the test stripe page
