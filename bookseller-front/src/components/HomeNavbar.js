@@ -21,6 +21,7 @@ export default function HomeNavbar(props) {
             <Nav className='me-auto'>
               <Nav.Link as={Link} to='/aboutus'>About Us</Nav.Link>
               <Nav.Link as={Link} to='/books'>Books</Nav.Link>
+              <Nav.Link as={Link} to='/bookpage'>Demo Bookpage</Nav.Link>
               {props.authentication ? (
                 <NavItem>
                   <LogoutButton />
