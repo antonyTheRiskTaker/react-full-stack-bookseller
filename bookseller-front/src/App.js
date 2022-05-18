@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 
 import Home from './screens/Home';
 import AboutUs from './screens/AboutUs';
-import Books from './screens/Books';
+// import Books from './screens/Books';
 import BookPage from './screens/BookPage';
 
 import HomeNavbar from './components/HomeNavbar';
@@ -18,7 +18,7 @@ import Cart from './components/Cart';
 import Checkout from './components/Checkout';
 import SuccessMessage from './components/SuccessMessage';
 import CancelMessage from './components/CancelMessage';
-import { Nav } from 'react-bootstrap';
+// import { Nav } from 'react-bootstrap';
 
 function RequireAuth({ children, redirectTo }) {
   let isAuthenticated = useSelector((state) => state.authStore.auth);
@@ -37,6 +37,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/aboutus' element={<AboutUs />} />
         <Route path='/books' element={<PublicBookList />} />
+        <Route path='/bookpage' element={<BookPage />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/login' element={<Login />} />
         <Route path='/managebook' element={<RequireAuth redirectTo='/login'>

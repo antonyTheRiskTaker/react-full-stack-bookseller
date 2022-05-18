@@ -9,7 +9,11 @@ import lucullusLibrary from '../images/library-of-lucullus.jpg';
 import ukrainianHero from '../images/ukrainian-hero.jpg';
 
 export default function Home() {
-  
+  const homeTitleStyle = {
+    'text-align': 'center',
+    margin: '20px'
+  }
+
   const imageSettings = {
     width: '400px',
     height: '400px',
@@ -23,6 +27,7 @@ export default function Home() {
   return (
     <>
       <main>
+        <h1 style={homeTitleStyle}>We Stand With Ukraine</h1>
         <Container>
           <Row>
             <Col>

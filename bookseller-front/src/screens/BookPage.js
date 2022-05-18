@@ -10,6 +10,7 @@ import BookImageCarousel from '../components/BookImageCarousel';
 import ukrainianStamp from '../images/ukrainian-stamp.jpeg';
 
 export default function BookPage() {
+  
   const bookImageStyle = {
     width: '50%',
     height: '50%',
@@ -28,6 +29,7 @@ export default function BookPage() {
       <main>
         <Container>
           {/* Add a generic breadcrumb component here. Please reference https://www.perlego.com/book/1974529/the-basics-of-essay-writing-pdf for inspiration */}
+          
           <Row>
             <Col>
               <Row>
@@ -66,7 +68,7 @@ export default function BookPage() {
                   className='mb-3'
                 >
                   <Tab eventKey='synopsis' title='Synopsis'>
-                    On 24th August, 2022, we will occupy Moscow and hang Putin.
+                    On 24th August, 2022, we will go to Moscow and drop down some washing machines.
                   </Tab>
                   <Tab eventKey='book-images' title='Book images'>
                     <BookImageCarousel />
