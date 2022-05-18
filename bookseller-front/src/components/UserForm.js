@@ -43,7 +43,7 @@ function UserForm(props) {
         />
         <Form.Label for='password'>Password</Form.Label>
         <Form.Control
-          type='text'
+          type='password'
           name='password'
           id='password'
           placeHolder='Insert Password Here'
