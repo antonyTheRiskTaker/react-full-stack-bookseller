@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 // import './App.css';
 
 import Home from './screens/Home';
+import AboutUs from './screens/AboutUs';
 import Books from './screens/Books';
 import BookPage from './screens/BookPage';
 
@@ -34,12 +35,8 @@ function App() {
       </header>
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/aboutus' element={<AboutUs />} />
         <Route path='/books' element={<PublicBookList />} />
-        {/* <Route path='/books' element={<BookPage />}>
-          <Route path='/finance' element={}>
-          <Route path='/history' element={}>
-          <Route path='/philosophy' element={}>
-        </Route> */}
         <Route path='/signup' element={<Signup />} />
         <Route path='/login' element={<Login />} />
         <Route path='/managebook' element={<RequireAuth redirectTo='/login'>
