@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 
+import homeNavbarStyle from './home-navbar.css';
+
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -11,12 +13,13 @@ import LogoutButton from './LogoutButton';
 export default function HomeNavbar(props) {
   return (
     <>
-      <Navbar bg='light' expand='lg'>
+      <Navbar className='home-navbar' expand='lg' style={homeNavbarStyle}>
         <Container>
           <Navbar.Brand as={Link} to='/'>bookseller</Navbar.Brand>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='me-auto'>
+              <Nav.Link as={Link} to='/aboutus'>About Us</Nav.Link>
               <Nav.Link as={Link} to='/books'>Books</Nav.Link>
               {props.authentication ? (
                 <NavItem>

@@ -37,7 +37,7 @@ export default function Home() {
                   <p>Not all readers are leaders, but all leaders are readers.</p>
                 </blockquote>
                 <Figure.Caption>
-                  - Marcus Tullius Cicero, Roman orator and statesman
+                  - Harry S. Truman, 33rd President of the United States
                 </Figure.Caption>
               </Figure>
             </Col>
