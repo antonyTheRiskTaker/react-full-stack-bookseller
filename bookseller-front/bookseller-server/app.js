@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config()
@@ -21,6 +22,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 // (Line below) it allows us to take the values that we'd get from a form input
 app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, '..', 'build')));
 app.use(auth.initialize());
 
 app.use((req, res, next) => {
@@ -48,6 +50,10 @@ const checkoutService = new CheckoutService(knex, stripe);
 app.use('/auth', new AuthRouter(express, knex).router());
 app.use('/api', new ManageBookRouter(manageBookService, auth, express).router());
 app.use('/cart', new CheckoutRouter(checkoutService, auth, express, stripe).router());
+
+app.use((req, res, next) => {
+  res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
+});
 
 app.listen(port, () => {
   console.log(`Application listening to port ${port}`);
