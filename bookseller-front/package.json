@@ -26,7 +26,7 @@
   },
   "scripts": {
     "client-start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "CI=false && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start": "yarn run build && (cd bookseller-server && yarn start)"
