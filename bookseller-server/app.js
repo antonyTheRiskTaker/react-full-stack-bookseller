@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config()
 
+const port = process.env.PORT || 8080;
+
 const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
 
 const knexfile = require('./knexfile').development;
@@ -47,6 +49,6 @@ app.use('/auth', new AuthRouter(express, knex).router());
 app.use('/api', new ManageBookRouter(manageBookService, auth, express).router());
 app.use('/cart', new CheckoutRouter(checkoutService, auth, express, stripe).router());
 
-app.listen(8080, () => {
-  console.log('Application listening to port 8080');
+app.listen(port, () => {
+  console.log(`Application listening to port ${port}`);
 });
