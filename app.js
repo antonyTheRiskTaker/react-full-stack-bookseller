@@ -22,7 +22,11 @@ app.use(cors(corsOptions));
 app.use(express.json());
 // (Line below) it allows us to take the values that we'd get from a form input
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, '..', 'build')));
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '/bookseller-front/build')));
+}
+
 app.use(auth.initialize());
 
 app.use((req, res, next) => {
