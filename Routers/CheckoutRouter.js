@@ -42,8 +42,9 @@ class CheckoutRouter {
             quantity: cartItems.length
           },
         ],
-        success_url: `http://localhost:3000/success`,
-        cancel_url: `http://localhost:3000/cancel`
+        // (If in development) switch back to local url
+        success_url: `${process.env.REMOTE_APP_URL}/success`,
+        cancel_url: `${process.env.REMOTE_APP_URL}/cancel`
       })
       console.log(session.url)
       // res.redirect(302, session.url); // error when redirecting not able to access the test stripe page

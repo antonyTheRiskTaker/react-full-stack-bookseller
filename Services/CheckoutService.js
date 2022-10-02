@@ -21,8 +21,9 @@ class checkoutService {
           quantity: item.quantity
         }
       }),
-      success_url: `${process.env.CLIENT_URL}/success.html`,
-      cancel_url: `${process.env.CLIENT_URL}/cancel.html`
+      // (If in development) switch back to local url
+      success_url: `${process.env.REMOTE_APP_URL}/success.html`,
+      cancel_url: `${process.env.REMOTE_APP_URL}/cancel.html`
     })
     res.json({ url: session.url });
   }
