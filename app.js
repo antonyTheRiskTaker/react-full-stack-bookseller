@@ -13,12 +13,12 @@ const knex = require('knex')(knexfile);
 const auth = require('./auth/auth')(knex);
 
 const app = express();
-const corsOptions ={
-    origin:'http://localhost:3000', 
-    credentials:true,            //access-control-allow-credentials:true
-    optionSuccessStatus:200
-}
-app.use(cors(corsOptions));
+// const corsOptions = {
+//     origin:'http://localhost:3000', 
+//     credentials:true,            //access-control-allow-credentials:true
+//     optionSuccessStatus:200
+// };
+app.use(cors()); // Can add corsOptions as an argument to cors()
 app.use(express.json());
 // (Line below) it allows us to take the values that we'd get from a form input
 app.use(express.urlencoded({ extended: false }));
