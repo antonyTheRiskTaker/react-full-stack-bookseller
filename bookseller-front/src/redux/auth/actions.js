@@ -5,7 +5,8 @@ export const LOGOUT_USER = 'LOGOUT_USER';
 
 export const loginUserThunk = (email, password) => {
   return (dispatch) => {
-    axios.post(`${process.env.REACT_APP_API_SERVER}/auth/login`, {
+    // (Line below) if proxy doesn't work, add `${process.env.REACT_APP_API_SERVER}` back
+    axios.post(`/auth/login`, {
       email,
       password
     })
@@ -22,7 +23,8 @@ export const loginUserThunk = (email, password) => {
 
 export const signupUserThunk = (email, password) => {
   return (dispatch) => {
-    axios.post(`${process.env.REACT_APP_API_SERVER}/auth/signup`, {
+    // (Line below) if proxy doesn't work, add `${process.env.REACT_APP_API_SERVER}` back
+    axios.post(`/auth/signup`, {
       email,
       password
     })

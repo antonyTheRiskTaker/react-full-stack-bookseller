@@ -39,7 +39,8 @@ export function ProcessPaymentThunk(cartItems) {
     let token = localStorage.getItem('BooksellerLoginToken');
 
     axios.post(
-      `${process.env.REACT_APP_API_SERVER}/cart/checkout`, { cartItems },
+      // (Line below) if proxy doesn't work, add `${process.env.REACT_APP_API_SERVER}` back
+      `/cart/checkout`, { cartItems },
       {
         headers: {
           Authorization: `Bear ${token}`

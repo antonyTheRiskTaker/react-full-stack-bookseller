@@ -39,7 +39,8 @@ export function AddBookThunk(book) {
     let token = localStorage.getItem('BooksellerLoginToken');
 
     axios.post(
-      `${process.env.REACT_APP_API_SERVER}/api/managebook`, { book },
+      // (Line below) if proxy doesn't work, add `${process.env.REACT_APP_API_SERVER}` back
+      `/api/managebook`, { book },
       {
         headers: {
           Authorization: `Bearer ${token}`
@@ -57,7 +58,8 @@ export function EditBookThunk(book) {
     let token = localStorage.getItem('BooksellerLoginToken');
 
     axios.put(
-      `${process.env.REACT_APP_API_SERVER}/api/managebook`, 
+      // (Line below) if proxy doesn't work, add `${process.env.REACT_APP_API_SERVER}` back
+      `/api/managebook`, 
       {
         book,
         isbn: book.isbn
@@ -79,7 +81,8 @@ export function GetBooksThunk() {
     let token = localStorage.getItem('BooksellerLoginToken');
     console.log(token);
     axios.get(
-      `${process.env.REACT_APP_API_SERVER}/api/managebook`,
+      // (Line below) if proxy doesn't work, add `${process.env.REACT_APP_API_SERVER}` back
+      `/api/managebook`,
       { // Is headers needed?
         headers: {
           Authorization: `Bearer ${token}`
@@ -98,7 +101,8 @@ export function DeleteBookThunk(isbn) {
     let token = localStorage.getItem('BooksellerLoginToken');
 
     axios.delete(
-      `${process.env.REACT_APP_API_SERVER}/api/managebook/${isbn}`,
+      // (Line below) if proxy doesn't work, add `${process.env.REACT_APP_API_SERVER}` back
+      `/api/managebook/${isbn}`,
       {
         headers: {
           Authorization: `Bearer ${token}`
