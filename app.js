@@ -55,9 +55,9 @@ app.use('/auth', new AuthRouter(express, knex).router());
 app.use('/api', new ManageBookRouter(manageBookService, auth, express).router());
 app.use('/cart', new CheckoutRouter(checkoutService, auth, express, stripe).router());
 
-app.use((req, res, next) => {
-  res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
-});
+// app.use((req, res, next) => {
+//   res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
+// });
 
 app.listen(port, () => {
   console.log(`Application listening to port ${port}`);
